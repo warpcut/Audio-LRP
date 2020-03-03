@@ -1,13 +1,5 @@
-from memory_profiler import memory_usage
-import os
-import pandas as pd
 from glob import glob
 import numpy as np
-from keras import layers
-from keras import models
-from keras.layers.advanced_activations import LeakyReLU
-from keras.optimizers import Adam
-import keras.backend as K
 import librosa
 import librosa.display
 import pylab
@@ -15,7 +7,6 @@ import matplotlib.pyplot as plt
 from matplotlib import figure
 import gc
 from path import Path
-from keras_preprocessing.image import ImageDataGenerator
 
 def create_spectrogram(filename,name):
     plt.interactive(False)
@@ -54,7 +45,7 @@ def create_spectrogram_test(filename,name):
     del filename,name,clip,sample_rate,fig,ax,S
 
 
-Data_dir=np.array(glob("/mnt/e/Documenti/Datasets/8Kprocessed/to4sec/*"))
+Data_dir=np.array(glob("./Datasets/8Kprocessed/to4sec/*"))
 
 i=0
 for file in Data_dir[i:i+2000]:
@@ -75,7 +66,7 @@ for file in Data_dir[i:]:
     create_spectrogram(filename,name)
 gc.collect()
 
-Test_dir=np.array(glob("/mnt/e/Documenti/Datasets/8Kprocessed/4test/*"))
+Test_dir=np.array(glob("./Datasets/8Kprocessed/4test/*"))
 i=0
 for file in Test_dir[i:i+1500]:
     filename,name = file,file.split('/')[-1].split('.')[0]
@@ -87,42 +78,3 @@ for file in Test_dir[i:]:
     filename,name = file,file.split('/')[-1].split('.')[0]
     create_spectrogram_test(filename,name)
 gc.collect()
-
-'''
-def append_ext(fn):
-    result = os.path.splitext(fn)[0]
-    return result +".png"
-
-traindf=pd.read_csv('./urban/UrbanSound8K.csv',dtype=str)
-testdf=pd.read_csv('./urban/UrbanSound8K.csv',dtype=str)
-traindf["slice_file_name"]=traindf["slice_file_name"].apply(append_ext)
-testdf["slice_file_name"]=testdf["slice_file_name"].apply(append_ext)
-print(traindf[:10])
-
-datagen=ImageDataGenerator(rescale=1./255.,validation_split=0.25)
-
-
-train_generator=datagen.flow_from_dataframe(
-    dataframe=traindf,
-    directory="/urban/train/",
-    x_col="slice_file_name",
-    y_col="class",
-    subset="training",
-    batch_size=32,
-    seed=42,
-    shuffle=True,
-    class_mode="categorical",
-    target_size=(64,64))
-
-valid_generator=datagen.flow_from_dataframe(
-    dataframe=traindf,
-    directory="/urban/train/",
-    x_col="slice_file_name",
-    y_col="class",
-    subset="validation",
-    batch_size=32,
-    seed=42,
-    shuffle=True,
-    class_mode="categorical",
-    target_size=(64,64))
-'''
