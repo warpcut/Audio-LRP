@@ -1,5 +1,3 @@
-import warnings
-warnings.simplefilter('ignore')
 import imp
 import os
 import pandas as pd
