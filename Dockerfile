@@ -14,9 +14,11 @@ ADD models /models
 ADD images /images
 ADD train.py /
 ADD test_organizer.py /
+ADD feature_extraction.py /
 ADD analyze.py /
 ADD mean.py /
 ADD result_organizer.py /
+ADD final_image_generator.py /
 
 
 # CMD [ "python", "./my_test.py" ]
