@@ -15,6 +15,8 @@ ADD images /images
 ADD train.py /
 ADD test_organizer.py /
 ADD analyze.py /
+ADD mean.py /
+ADD result_organizer.py /
 
 
 # CMD [ "python", "./my_test.py" ]
