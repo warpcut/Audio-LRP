@@ -2,10 +2,21 @@
 
 
 ## Feature extraction
-  Mel-spectrogram extracted for every 4 second sample.
-  
-  ![Mel-Spectrogram example](https://github.com/warpcut/Audio-LRP/blob/master/urban/train/105289-8-1-4.png)
-  
+
+Spectrogram is a standard sound visualization tool, showing the distribution of energy in both time and frequency.
+
+### Mel-spectrogram
+
+Spectrogram with the Mel Scale as its y axis, Mel Scale is constructed such that sounds of equal distance from each other on the Mel Scale, also “sound” to humans as they are equal in distance from one another.
+
+![Mel-Spectrogram example](https://github.com/warpcut/Audio-LRP/blob/master/mel_example.png)
+
+### Constant-Q spectrogram
+
+Spectrogram of the constant-q transform, it has geometrically spaced center frequencies, it also increases time resolution towards higher frequencies, as the human auditory system.
+
+![Constant-Q-Spectrogram example](https://github.com/warpcut/Audio-LRP/blob/master/constant-q_example.png)
+
 ## Model training
   Model trained on the following net:
   ```shell
