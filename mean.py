@@ -21,4 +21,4 @@ for label in labels:
     for i in range(1,N):
         img=Image.open('./urban/results/' + label + '/correct_flat/' + imlist[i])
         avg=Image.blend(avg,img,1.0/float(i+1))
-    avg.save(".images/avgs/" + label + "_average.png")
+    avg.save("./images/avgs/" + label + "_average.png")

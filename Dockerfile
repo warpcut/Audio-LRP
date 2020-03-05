@@ -12,6 +12,7 @@ RUN apt-get install -y vim
 ADD urban /urban
 ADD models /models
 ADD images /images
+
 ADD train.py /
 ADD test_organizer.py /
 ADD feature_extraction.py /
