@@ -2,7 +2,10 @@
 
 
 ## Feature extraction
-  Mel-spectrogram extracted for every 4 second sample
+  Mel-spectrogram extracted for every 4 second sample.
+  
+  ![Mel-Spectrogram example](https://github.com/warpcut/Audio-LRP/blob/master/urban/train/105289-8-1-4.png)
+  
 ## Model training
   Model trained on the following net:
   ```shell
